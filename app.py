@@ -31,7 +31,7 @@ st.write(
 def load_my_model():
 
     model = load_model(
-        "best_model.keras" ,compile=False
+        "best_model.h5" ,compile=False
     )
 
     return model
