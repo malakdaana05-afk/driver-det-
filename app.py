@@ -2,10 +2,10 @@ import cv2
 import numpy as np
 from PIL import Image, ImageOps
 
-IMG_SIZE = 224  # عدل الحجم حسب موديلك
+IMG_SIZE = 224
 
 def preprocess_image(image):
-    # تأكد أن الصورة RGB
+    # تحويل الصورة إلى RGB
     image = image.convert("RGB")
 
     # PIL -> NumPy
@@ -25,7 +25,7 @@ def preprocess_image(image):
     # تقسيم القنوات
     l, a, b = cv2.split(lab)
 
-    # تحسين الإضاءة فقط
+    # تطبيق CLAHE على قناة الإضاءة
     l_clahe = clahe.apply(l)
 
     # دمج القنوات
@@ -38,7 +38,7 @@ def preprocess_image(image):
     image = Image.fromarray(img_np)
 
     # ======================================
-    # Letterbox Padding
+    # Letterbox Resize
     # ======================================
     image = ImageOps.pad(
         image,
