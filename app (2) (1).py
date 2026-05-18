@@ -26,7 +26,7 @@ st.write("Upload an image to analyze driver behavior using Deep Learning.")
 # =========================
 @st.cache_resource
 def load_my_model():
-    model = load_model("best_model (1).h5", compile=False)
+    model = load_model("best_model_final_final.h5", compile=False)
     return model
 
 model = load_my_model()
